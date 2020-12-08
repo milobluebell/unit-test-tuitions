@@ -1,16 +1,17 @@
 import React from "react";
+import { fetchData } from "./service.js";
 
-export class AsyncApp extends React.Component {
+class AsyncApp extends React.Component {
   constructor() {
     super();
     this.state = {
       message: "",
     };
-    this.fetchData = this.fetchData.bind(this);
+    this.handleFetch = this.handleFetch.bind(this);
   }
 
-  async fetchData() {
-    const message = await Promise.resolve("ok");
+  async handleFetch() {
+    const message = await fetchData();
     this.setState({ message });
   }
 
@@ -18,10 +19,11 @@ export class AsyncApp extends React.Component {
     return (
       <>
         <span id="reminder">{this.state.message}</span>
-        <button onClick={this.fetchData} id="button">
+        <button onClick={this.handleFetch} id="button">
           谢谢老板
         </button>
       </>
     );
   }
 }
+export default AsyncApp;

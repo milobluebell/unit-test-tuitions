@@ -85,3 +85,21 @@ const Adapter = require("@wojtekmaj/enzyme-adapter-react-17");
 
 Enzyme.configure({ adapter: new Adapter() });
 ```
+
+## 🕳 没有被 act 包裹
+
+```
+  console.error
+    Warning: An update to AsyncApp inside a test was not wrapped in act(...).
+
+    When testing, code that causes React state updates should be wrapped into act(...):
+
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+        at AsyncApp (/Users/milobluebell/Documents/GitHub/unit-test-tuitions/react-async-test/index.fc.jsx:15:53)
+        at WrapperComponent (/Users/milobluebell/Documents/GitHub/unit-test-tuitions/node_modules/enzyme-adapter-utils/build/createMountWrapper.js:114:7)
+```

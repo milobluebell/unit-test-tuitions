@@ -1,0 +1,1 @@
+export const fetchData = () => new Promise((resolve) => setTimeout((result) => resolve(result), 666, 'ok'));

@@ -1,5 +1,4 @@
 
-
 export const fullfiledResponse = {
   "statuscode": 1,
   "message": "success",
@@ -12,7 +11,6 @@ export const rejectedResponse = {
   "statuscode": 0,
   "message": "failed",
 }
-
 
 export class Client {
 

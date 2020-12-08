@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffec } from "react";
 
 // 子组件
 export const InnerApp = ({ status }) => (
@@ -6,12 +6,10 @@ export const InnerApp = ({ status }) => (
 );
 
 // 父组件(根组件)
-export const App = ({ onButtonClick }) => {
+export const AppUpdatedByUseEffect = () => {
   const [status, toggleStatus] = useState(false);
-  const handleClick = useCallback(() => {
-    toggleStatus(!status);
-    onButtonClick && onButtonClick(!status);
-  }, [status]);
+  useEffect(() => {}, [status]);
+  const handleClick = () => {};
   return (
     <div>
       <InnerApp status={status} />
