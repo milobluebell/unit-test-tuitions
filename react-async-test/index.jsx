@@ -5,7 +5,7 @@ class AsyncApp extends React.Component {
   constructor() {
     super();
     this.state = {
-      message: "",
+      message: ""
     };
     this.handleFetch = this.handleFetch.bind(this);
   }

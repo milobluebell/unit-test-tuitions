@@ -1,7 +1,7 @@
 import { Client, fullfiledResponse, rejectedResponse } from '.';
 
 // 
-describe('🧪  async request', function () {
+describe('🧪 async request', function () {
 
   // 同步测试❌
   // it('runing sync', function () {

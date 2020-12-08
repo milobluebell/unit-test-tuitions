@@ -3,40 +3,41 @@ import React, { useState, useEffect } from "react";
 export class ClassComponent extends React.Component {
   constructor(_) {
     super(_);
-    this.clickHandler = this.clickHandler.bind(this);
     this.state = {
-      status: false,
+      message: ""
     };
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   clickHandler() {
-    this.setState({
-      status: !this.state.status,
-    });
+    setTimeout(() => {
+      this.setState({
+        message: "test"
+      });
+    }, 0);
   }
 
   render() {
     return (
       <>
-        <span id="reminder">{this.state.status.toString()}</span>
-        <button onClick={this.handleFetch} id="button">
-          谢谢老板
-        </button>
+        <span id="span">{this.state.message}</span>
+        <button id="button" onClick={this.clickHandler}></button>
       </>
     );
   }
 }
 
-export class ClassComponentUpdatedByXhrResponse extends React.Component {
-  constructor(_) {
-    super(_);
-    this.clickHandler = this.clickHandler.bind(this);
-    this.state = {
-      data: {},
-    };
-  }
-}
-
-const FunctionalComponent = () => {};
-
-const FunctionalComponentUpdatedByXhrResponse = () => {};
+export const FunctionalComponent = () => {
+  const [message, setMessage] = useState("");
+  const clickHandler = () => {
+    setTimeout(() => {
+      setMessage("test");
+    }, 0);
+  };
+  return (
+    <>
+      <span id="span">{message}</span>
+      <button id="button" onClick={clickHandler}></button>
+    </>
+  );
+};
