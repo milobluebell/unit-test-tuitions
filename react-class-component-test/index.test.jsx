@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { App } from "./index.jsx";
 import { mount } from "enzyme";
 
-// mount/shallow/render的区别
 describe("🧪 react component test", function () {
   // 组件交互测试 - 挂载
   it("test mount", function () {

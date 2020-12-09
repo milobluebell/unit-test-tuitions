@@ -103,3 +103,30 @@ Enzyme.configure({ adapter: new Adapter() });
         at AsyncApp (/Users/milobluebell/Documents/GitHub/unit-test-tuitions/react-async-test/index.fc.jsx:15:53)
         at WrapperComponent (/Users/milobluebell/Documents/GitHub/unit-test-tuitions/node_modules/enzyme-adapter-utils/build/createMountWrapper.js:114:7)
 ```
+
+在 functional 组件里，通过调用 useState、useEffect 等 hooks 对状态进行操作（尤其是异步操作）需要被`act`包裹
+
+```jsx
+import { act } from "react-dom/test-utils";
+
+describe("🧪 act", function () {
+  it("render class component without act", async function () {
+    const wrapper = mount(<ClassComponent />);
+    const target = wrapper.find("#button");
+    target.simulate("click");
+    await new Promise((resolve) => setTimeout(() => resolve(), 200));
+    expect(wrapper.find("#span").text()).toBe("test");
+  });
+
+  it("render functional component without act", async function () {
+    const wrapper = mount(<FunctionalComponent />);
+    const target = wrapper.find("#button");
+    await act(async () => {
+      target.simulate("click");
+      await new Promise((resolve) => setTimeout(() => resolve(), 200));
+    });
+
+    expect(wrapper.find("#span").text()).toBe("test");
+  });
+});
+```

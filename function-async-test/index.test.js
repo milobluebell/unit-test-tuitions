@@ -45,11 +45,11 @@ describe('🧪 async request', function () {
   });
 
   // 使用expect.assertions对期望调用次数进行断言✅
-  it('the 4th way', function () {
-    expect.assertions(1);
-    return Client.getInfo().then(err => {
-      expect(err).toEqual(fullfiledResponse);
-    });
-  });
+  // it('the 4th way', function () {
+  //   expect.assertions(1);
+  //   return Client.getInfo().then(err => {
+  //     expect(err).toEqual(fullfiledResponse);
+  //   });
+  // });
 
 });
